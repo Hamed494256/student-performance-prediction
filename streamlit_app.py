@@ -11,8 +11,22 @@ import joblib
 import pandas as pd
 import streamlit as st
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+HERE = Path(__file__).resolve().parent
+
+
+def find(name, required=True):
+    """Locate a project file wherever it sits in the repository.
+    Works for the normal layout (app/, src/, models/) and also if the files were uploaded flat."""
+    for base in (HERE, HERE.parent):
+        hit = next(base.rglob(name), None)
+        if hit is not None:
+            return hit
+    if required:
+        raise FileNotFoundError(f"{name} was not found in the repository - check that src/, models/ and docs/ were uploaded.")
+    return None
+
+
+sys.path.insert(0, str(find("common.py").parent))
 from common import AT_RISK, CLASS_ORDER, add_features  # noqa: E402  (same code as training)
 
 st.set_page_config(page_title="Student Early-Warning System", page_icon="🎓", layout="wide")
@@ -20,8 +34,8 @@ st.set_page_config(page_title="Student Early-Warning System", page_icon="🎓", 
 
 @st.cache_resource
 def load_model():
-    model = joblib.load(ROOT / "models" / "student_performance_model.joblib")
-    meta = json.load(open(ROOT / "models" / "model_metadata.json"))
+    model = joblib.load(find("student_performance_model.joblib"))
+    meta = json.load(open(find("model_metadata.json")))
     return model, meta
 
 
@@ -124,8 +138,8 @@ with tab_batch:
     st.subheader("Score a whole cohort")
     st.write("Upload a CSV with the same raw columns as the dataset (the `performance_status` column is not needed). "
              "Missing values are handled automatically.")
-    sample_path = ROOT / "data" / "sample" / "student_performance_sample_5000.csv"
-    if sample_path.exists():
+    sample_path = find("student_performance_sample_5000.csv", required=False)
+    if sample_path is not None:
         st.download_button("Download a sample file", sample_path.read_bytes(), "student_sample.csv", "text/csv")
     up = st.file_uploader("CSV file", type="csv")
     if up is not None:
@@ -149,8 +163,8 @@ with tab_model:
              f"**Test macro-F1:** {meta['test_macro_f1']:.3f}  |  **At-risk AUC:** {meta['at_risk_auc']:.3f}")
     st.write("Business purpose: help advisors find students likely to **fail or withdraw** early enough to intervene. "
              "Risk levels: Low < 35%, Medium 35–60%, High > 60% at-risk probability.")
-    imp_path = ROOT / "docs" / "results" / "feature_importance.csv"
-    if imp_path.exists():
+    imp_path = find("feature_importance.csv", required=False)
+    if imp_path is not None:
         imp = pd.read_csv(imp_path).head(12).set_index("feature")["importance"]
         st.markdown("**What drives predictions (permutation importance)**")
         st.bar_chart(imp)
