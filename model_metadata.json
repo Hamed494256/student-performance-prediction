@@ -1,0 +1,329 @@
+{
+  "model_name": "Random Forest",
+  "features": [
+    "academic_year",
+    "semester",
+    "institution_type",
+    "program",
+    "study_level",
+    "year_of_study",
+    "age",
+    "enrollment_status",
+    "admission_type",
+    "prior_gpa",
+    "entry_exam_score",
+    "scholarship_status",
+    "financial_aid",
+    "commute_minutes",
+    "employment_hours_week",
+    "internet_access",
+    "device_access",
+    "attendance_rate",
+    "absence_days",
+    "study_hours_week",
+    "library_visits_month",
+    "lms_logins_week",
+    "video_completion_rate",
+    "forum_posts",
+    "assignment_submission_rate",
+    "assignment_avg_score",
+    "quiz_avg_score",
+    "midterm_score",
+    "late_submissions",
+    "support_sessions",
+    "course_load_credits",
+    "course_difficulty",
+    "avg_assessment_score",
+    "midterm_vs_coursework",
+    "online_engagement",
+    "study_per_credit",
+    "total_weekly_load",
+    "attendance_x_submission",
+    "academic_gap",
+    "low_connectivity",
+    "n_missing_values"
+  ],
+  "numeric": [
+    "year_of_study",
+    "age",
+    "prior_gpa",
+    "entry_exam_score",
+    "commute_minutes",
+    "employment_hours_week",
+    "attendance_rate",
+    "absence_days",
+    "study_hours_week",
+    "library_visits_month",
+    "lms_logins_week",
+    "video_completion_rate",
+    "forum_posts",
+    "assignment_submission_rate",
+    "assignment_avg_score",
+    "quiz_avg_score",
+    "midterm_score",
+    "late_submissions",
+    "support_sessions",
+    "course_load_credits",
+    "avg_assessment_score",
+    "midterm_vs_coursework",
+    "online_engagement",
+    "study_per_credit",
+    "total_weekly_load",
+    "attendance_x_submission",
+    "academic_gap",
+    "low_connectivity",
+    "n_missing_values"
+  ],
+  "categorical": [
+    "academic_year",
+    "semester",
+    "institution_type",
+    "program",
+    "study_level",
+    "enrollment_status",
+    "admission_type",
+    "scholarship_status",
+    "financial_aid",
+    "internet_access",
+    "device_access",
+    "course_difficulty"
+  ],
+  "classes": [
+    "Distinction",
+    "Fail",
+    "Pass",
+    "Withdrawn"
+  ],
+  "medians": {
+    "year_of_study": 3.0,
+    "age": 22.0,
+    "prior_gpa": 2.75,
+    "entry_exam_score": 73.0,
+    "commute_minutes": 28.0,
+    "employment_hours_week": 0.0,
+    "attendance_rate": 75.7,
+    "absence_days": 5.0,
+    "study_hours_week": 10.4,
+    "library_visits_month": 2.0,
+    "lms_logins_week": 9.0,
+    "video_completion_rate": 67.5,
+    "forum_posts": 2.0,
+    "assignment_submission_rate": 76.7,
+    "assignment_avg_score": 63.9,
+    "quiz_avg_score": 62.9,
+    "midterm_score": 61.7,
+    "late_submissions": 3.0,
+    "support_sessions": 1.0,
+    "course_load_credits": 16.0,
+    "avg_assessment_score": 62.833333333333336,
+    "midterm_vs_coursework": -1.6000000000000014,
+    "online_engagement": 5.97,
+    "study_per_credit": 0.680952380952381,
+    "total_weekly_load": 17.53333333333333,
+    "attendance_x_submission": 57.66629999999999,
+    "academic_gap": -4.200000000000003,
+    "low_connectivity": 0.0,
+    "n_missing_values": 0.0
+  },
+  "modes": {
+    "academic_year": "2023-2024",
+    "semester": "Fall",
+    "institution_type": "Public University",
+    "program": "Computer Science",
+    "study_level": "Undergraduate",
+    "enrollment_status": "Full-time",
+    "admission_type": "Regular",
+    "scholarship_status": "No",
+    "financial_aid": "No",
+    "internet_access": "Reliable",
+    "device_access": "Laptop",
+    "course_difficulty": "Moderate"
+  },
+  "choices": {
+    "academic_year": [
+      "2023-2024",
+      "2024-2025",
+      "2025-2026"
+    ],
+    "semester": [
+      "Fall",
+      "Spring",
+      "Summer"
+    ],
+    "institution_type": [
+      "Community College",
+      "Private University",
+      "Public University"
+    ],
+    "program": [
+      "Arts",
+      "Business",
+      "Computer Science",
+      "Education",
+      "Engineering",
+      "Health Sciences",
+      "Information Systems",
+      "Mathematics"
+    ],
+    "study_level": [
+      "Postgraduate",
+      "Undergraduate"
+    ],
+    "enrollment_status": [
+      "Full-time",
+      "Part-time"
+    ],
+    "admission_type": [
+      "Foundation",
+      "Regular",
+      "Transfer"
+    ],
+    "scholarship_status": [
+      "No",
+      "Yes"
+    ],
+    "financial_aid": [
+      "No",
+      "Yes"
+    ],
+    "internet_access": [
+      "Limited",
+      "Reliable",
+      "Unreliable"
+    ],
+    "device_access": [
+      "Desktop",
+      "Laptop",
+      "Phone Only",
+      "Shared Device",
+      "Tablet"
+    ],
+    "course_difficulty": [
+      "High",
+      "Low",
+      "Moderate"
+    ]
+  },
+  "ranges": {
+    "year_of_study": [
+      1.0,
+      5.0
+    ],
+    "age": [
+      17.0,
+      36.0
+    ],
+    "prior_gpa": [
+      0.0,
+      4.0
+    ],
+    "entry_exam_score": [
+      9.4,
+      100.0
+    ],
+    "commute_minutes": [
+      0.0,
+      180.0
+    ],
+    "employment_hours_week": [
+      0.0,
+      40.0
+    ],
+    "attendance_rate": [
+      6.1,
+      100.0
+    ],
+    "absence_days": [
+      0.0,
+      20.0
+    ],
+    "study_hours_week": [
+      0.0,
+      35.1
+    ],
+    "library_visits_month": [
+      0.0,
+      15.0
+    ],
+    "lms_logins_week": [
+      0.0,
+      36.0
+    ],
+    "video_completion_rate": [
+      0.0,
+      100.0
+    ],
+    "forum_posts": [
+      0.0,
+      14.0
+    ],
+    "assignment_submission_rate": [
+      0.6,
+      100.0
+    ],
+    "assignment_avg_score": [
+      0.0,
+      100.0
+    ],
+    "quiz_avg_score": [
+      0.0,
+      100.0
+    ],
+    "midterm_score": [
+      0.0,
+      100.0
+    ],
+    "late_submissions": [
+      0.0,
+      19.0
+    ],
+    "support_sessions": [
+      0.0,
+      8.0
+    ],
+    "course_load_credits": [
+      3.0,
+      21.0
+    ],
+    "avg_assessment_score": [
+      2.1333333333333333,
+      100.0
+    ],
+    "midterm_vs_coursework": [
+      -79.5,
+      76.3
+    ],
+    "online_engagement": [
+      0.0,
+      36.0
+    ],
+    "study_per_credit": [
+      0.0,
+      10.133333333333333
+    ],
+    "total_weekly_load": [
+      0.0,
+      71.73333333333333
+    ],
+    "attendance_x_submission": [
+      0.1656,
+      100.0
+    ],
+    "academic_gap": [
+      -69.0,
+      59.6
+    ],
+    "low_connectivity": [
+      0.0,
+      1.0
+    ],
+    "n_missing_values": [
+      0.0,
+      4.0
+    ]
+  },
+  "best_params": "{\"n_estimators\": 100, \"min_samples_leaf\": 10, \"max_features\": 0.5, \"max_depth\": 12}",
+  "test_macro_f1": 0.6292051110043542,
+  "test_accuracy": 0.58366,
+  "at_risk_auc": 0.8530378898170503
+}
