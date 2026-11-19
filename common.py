@@ -14,7 +14,10 @@ FIG_DIR = ROOT / "docs" / "figures"
 RES_DIR = ROOT / "docs" / "results"
 MODEL_DIR = ROOT / "models"
 for d in (CLEAN_PATH.parent, FIG_DIR, RES_DIR, MODEL_DIR):
-    d.mkdir(parents=True, exist_ok=True)
+    try:
+        d.mkdir(parents=True, exist_ok=True)
+    except OSError:          # e.g. read-only filesystem when only the app is deployed
+        pass
 
 RANDOM_STATE = 42
 TARGET = "performance_status"
